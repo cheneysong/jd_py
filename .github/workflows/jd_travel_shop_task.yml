@@ -3,7 +3,7 @@ name: jd_travel_shop_task
 on:
     workflow_dispatch:
     schedule:
-        - cron: "25 18 * * *"
+        - cron: "25 6,18 * * *"
     watch:
         types: [started]
     repository_dispatch:
