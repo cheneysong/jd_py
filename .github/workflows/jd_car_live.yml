@@ -27,11 +27,11 @@ jobs:
             
                   
           - name: run
-            run: |             
-             sed -i '15,17d' ./config.yaml
-             sed -i "15c/\${{ secrets.TEST_COOKIE }}" ./config.yaml
+            run: |     
+             sed -i -e '/pt/d' ./config.yaml
+             sed -i "15c${{ secrets.TEST_COOKIE }}" ./config.yaml
              sed 's/&/\n/g' ./config.yaml
-             sed -i "15,17s/^/  - /g" ./config.yaml
+             sed -i "/pt/s/^/  - /g" ./config.yaml
              
              sed -i "s/aaa/${{ secrets.TG_BOT_TOKEN }}/g" ./config.yaml
              sed -i "s/bbb/${{ secrets.TG_USER_ID }}/g" ./config.yaml
