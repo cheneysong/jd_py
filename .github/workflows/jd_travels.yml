@@ -3,7 +3,7 @@ name: jd_travels
 on:
     workflow_dispatch:
     schedule:
-        - cron: "*/40 * * * *"
+        - cron: "10 18 * * *"
     watch:
         types: [started]
     repository_dispatch:
@@ -28,7 +28,7 @@ jobs:
                   
           - name: run
             run: |             
-             sed -i "15c#${{ secrets.TEST_COOKIE }}" ./config.yaml
+             sed -i "15c${{ secrets.TEST_COOKIE }}" ./config.yaml
              sed 's/&/\n/g' ./config.yaml
              sed -i "15,25s/^/  - /g" ./config.yaml
              sed -i "s/aaa/${{ secrets.TG_BOT_TOKEN }}/g" ./config.yaml
